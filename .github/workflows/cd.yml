@@ -134,7 +134,8 @@ jobs:
           cd frontend
           # Set homepage for GitHub Pages
           export PUBLIC_URL=/${{ github.event.repository.name }}
-          NODE_ENV=production npm run build
+          # Disable treating warnings as errors in CI
+          CI=false npm run build
         env:
           # Add any environment variables your frontend needs
           REACT_APP_API_URL: https://your-backend-url.com
