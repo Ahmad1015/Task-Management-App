@@ -1,0 +1,168 @@
+:root {
+  --bg: #ffffff;
+  --muted: #888;
+  --border: #e6e6e6;
+  --card-bg: #fff;
+  --accent: #2b6cb0;
+}
+
+/* Basic reset */
+* { box-sizing: border-box; }
+html,body,#root { height: 100%; margin: 0; padding: 0; font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial; background: var(--bg); color: #111; }
+
+/* App header */
+.app-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  border-bottom: 1px solid var(--border);
+  background: linear-gradient(180deg, rgba(255,255,255,1), rgba(250,250,250,1));
+}
+
+.header-left h1 { margin: 0; font-size: 20px; font-weight: 600; }
+.subtitle { margin: 4px 0 0 0; color: var(--muted); font-size: 13px; }
+
+/* Buttons */
+.btn {
+  background: var(--accent);
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  margin-left: 8px;
+}
+.btn:active { transform: translateY(1px); }
+.btn-ghost {
+  background: transparent;
+  color: #333;
+  border: 1px solid var(--border);
+}
+.btn-sm { padding: 6px 8px; font-size: 13px; border-radius: 5px; }
+.btn-danger { background: #e53e3e; }
+
+/* Layout */
+.board-wrapper { padding: 20px; }
+.board {
+  display: flex;
+  gap: 18px;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+/* Column */
+.task-column {
+  flex: 1;
+  min-width: 260px;
+  max-width: 33%;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: #fafafa;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - 200px);
+  overflow-y: auto;
+}
+.column-title { margin: 0 0 10px 0; font-size: 16px; font-weight: 600; border-bottom: 1px solid var(--border); padding-bottom: 8px; }
+
+/* Task list & empty text */
+.tasks-list { display: flex; flex-direction: column; gap: 10px; padding-bottom: 10px; }
+.empty-text { color: var(--muted); font-size: 14px; text-align: center; margin-top: 12px; }
+
+/* Task card */
+.task-card {
+  background: var(--card-bg);
+  border: 1px solid #e8e8e8;
+  border-radius: 8px;
+  padding: 12px;
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  align-items: flex-start;
+  box-shadow: 0 1px 0 rgba(0,0,0,0.03);
+}
+.task-card:active { opacity: 0.95; }
+.task-title { margin: 0 0 6px 0; font-size: 14px; font-weight: 700; }
+.task-desc { margin: 0; font-size: 13px; color: #444; }
+
+/* Task actions */
+.task-actions { display: flex; gap: 8px; align-items: center; }
+
+/* Modal */
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 80;
+}
+.modal {
+  width: 420px;
+  max-width: 96%;
+  background: white;
+  border-radius: 10px;
+  padding: 18px;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.12);
+}
+.task-form label { display: block; margin-bottom: 12px; font-size: 13px; }
+.task-form input, .task-form textarea, .task-form select {
+  width: 100%;
+  padding: 8px 10px;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  font-size: 14px;
+}
+.task-form textarea { min-height: 80px; resize: vertical; }
+
+.modal-actions { display: flex; justify-content: flex-end; gap: 8px; margin-top: 8px; }
+
+/* Auth page */
+.auth-page {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(180deg, #fff, #f7f7f7);
+}
+.auth-card {
+  width: 380px;
+  max-width: 96%;
+  border: 1px solid var(--border);
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+  text-align: left;
+}
+.auth-form label { display: block; margin-bottom: 12px; font-size: 13px; }
+.auth-form input { width: 100%; padding: 8px; border-radius: 6px; border: 1px solid var(--border); }
+.error-message {
+  background: #fee;
+  border: 1px solid #fcc;
+  color: #c33;
+  padding: 10px;
+  border-radius: 6px;
+  margin-bottom: 12px;
+  font-size: 13px;
+}
+.auth-actions { display: flex; flex-direction: column; gap: 8px; margin-top: 8px; }
+
+/* Footer */
+.app-footer {
+  padding: 12px 20px;
+  border-top: 1px solid var(--border);
+  text-align: center;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+/* small screens */
+@media (max-width: 900px) {
+  .board { flex-direction: column; }
+  .task-column { max-width: 100%; height: auto; }
+}
